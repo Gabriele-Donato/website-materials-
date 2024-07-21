@@ -19,7 +19,7 @@ used in the coding part (which may be easily tuned in a student-friendly documen
 # How do I plan to work? 
 
 I plan to work systematically on the [website](https://gabriele-donato.github.io/gabrieledonato/) and repository, and sporadically on this branch. 
-\
+
 1) The first stages of developement will see different techniques being developed in isolation and in the most basic form.
 2) The second state will se the instroduction of function that allow customisation.
 3) The third stage will see the integration of the different components, and will be carried together with the final stage.
