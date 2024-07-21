@@ -21,9 +21,9 @@ used in the coding part (which may be easily tuned in a student-friendly documen
 I plan to work systematically on the [website](https://gabriele-donato.github.io/gabrieledonato/) and repository, and sporadically on this branch. 
 
 1) The first stages of developement will see different techniques being developed in isolation and in the most basic form.
-2) The second state will se the instroduction of function that allow customisation.
+2) The second state will se the introduction of functions that will allow customisations, and more functionalities.
 3) The third stage will see the integration of the different components, and will be carried together with the final stage.
-4) The final stage will be the developement of some AI feature for the cleaning and analysis of data.
+4) The final stage will be the developement of some AI features for the cleaning and analysis of data.
 
-I envisage the introduction of the elements in 4) as a step enabling lean and intuitive application of the function allowing the user to focus on modeling aspects, with a code that helps the user respecting model assumptions and functions being suggested in automatic (in order to flatten the learning curve of a new tool).
-At the same time I believe that the combination of these features, combined with a code accessible in both the integrated version of 3), and the disaggregated version that will characterise the developement phases, will provide valuable educational tools.
+I envisage the introduction of the elements in 4) as a step enabling an intuitive application of the functions, allowing the user to focus on modeling aspects, with the code helping in respecting models assumptions, and functions being suggested automatically (in order to flatten the learning curve of a new tool).
+At the same time I believe that the combination of these features, and a code accessible in both the integrated version of 3), and the disaggregated version that will characterise the developemental phases, will provide a valuable educational tool.
