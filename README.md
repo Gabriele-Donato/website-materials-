@@ -1,6 +1,6 @@
 # Where are we heading? 
 
-This branch of the depository is devoted to Bayesian Time Series analysis. As I explain in the main branch, the original inspiration for my Bayesian projects are the lessons of professor Roberto Casarin (University Ca' Foscari of Venice), who introduced us to a library-free approach.
+This branch of the repository is devoted to Bayesian Time Series analysis. As I explain in the main branch, the original inspiration for my Bayesian projects are the lessons of professor Roberto Casarin (University Ca' Foscari of Venice), who introduced us to a library-free approach.
 I deem his teachings fundamental to my understanding of this subject. 
 In the  Python implementations currently available, one is forced to learn a number of intricate commands (often combining under the hood more than one library). In my opinion this 
 adds several layers of complexity for the learner.
