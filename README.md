@@ -1,4 +1,5 @@
-**This file is dated 24/07/2024 15.00 and the PySpark code is being written: it will be updated soon**
+**The project has been updated! Here the changes: 1) I have switched from Jupyter to Pycharm; 2) I have introduced a Kafka component that scrapes everyday the updates (stream); 3) I have momentarily suppressed the streams TextParser class that had been introduced in the previous version: I am considering to switch to PySpark for that. A new function that checks whether there have been updates should be included (however this may be done once the storing system will be implemented.)**
+
 # What is cooking?
 
 This project is my first structured and thought attempt at using Big-Data technologie. The idea originally came from the ambition to learn and use in the same project both Hadoop and Spark. I think that the scraper (synchronous since parallelized by Spark) should send the data to Kafka, then they will have to be processed through PySpark and finally stored in a Hive table.
