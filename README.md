@@ -2,7 +2,7 @@
 
 # What is cooking?
 
-This project is my first structured and thought attempt at using Big-Data technologie. The idea originally came from the ambition to learn and use in the same project both Hadoop and Spark. I think that the scraper (synchronous since parallelized by Spark) should send the data to Kafka, then they will have to be processed through PySpark and finally stored in a Hive table.
+This project is my first structured and thought attempt at using Big-Data technologies (albeit without BigData). The idea originally came from the ambition to learn and use in the same project both Hadoop and Spark. I think that the scraper (synchronous since parallelized by Spark) should send the data to Kafka, then they will have to be processed through PySpark and finally stored in a Hive table.
 
 This is an ongoing project, so I have only rough ideas about the results, and I am motivated solely by the fact that I would like to learn these beautiful tools of big-data managemenet. Check also my [website](https://gabriele-donato.github.io/gabrieledonato/jekyll/update/2024/07/22/Updates.html) to know more.
 
