@@ -1,3 +1,4 @@
+**This file is dated 24/07/2024 15.00 and the PySpark code is being written: it will be updated soon**
 # What is cooking?
 
 This project is my first structured and thought attempt at using Big-Data technologie. The idea originally came from the ambition to learn and use in the same project both Hadoop and Spark. I think that the scraper (synchronous since parallelized by Spark) should send the data to Kafka, then they will have to be processed through PySpark and finally stored in a Hive table.
@@ -18,4 +19,4 @@ After the above general attempts I hope to achieve a generalisation of the basic
 
 Note that 2) has been an interest of mine since I learned webscraping, so I plan to define it in the most general way so that it can be a reusable component: finally I have the skills to tackle the problem!!
 
-**This file is dated 24/07/2024 15.00 and the PySpark code is being written: it will be updated soon**
+
