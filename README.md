@@ -1,4 +1,4 @@
-**The project has been updated! Here the changes: 1) I have switched from Jupyter to Pycharm; 2) I have introduced a Kafka component that scrapes everyday the updates (stream); 3) I have momentarily suppressed the streams TextParser class that had been introduced in the previous version: I am considering to switch to PySpark for that. A new function that checks whether there have been updates should be included (however this may be done once the storing system will be implemented.)**
+**The project has been updated! Here the changes: 1) I have switched from Jupyter to Pycharm; 2) I have introduced a Kafka producer that scrapes everyday the updates (stream); 3) I have momentarily suppressed the TextParser class that had been introduced in the previous version. A new function that checks whether there have been updates should be included (however this may be done once the storing system will be implemented.)**
 
 # What is cooking?
 
