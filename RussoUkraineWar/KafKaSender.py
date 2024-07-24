@@ -18,7 +18,7 @@ async def main():
         while True:
             extractor = ResourceExtractor.ResourceExtractor()
             data = await extractor.run_text_extractor()
-            logging.debug('Got weather %s', data)
+            logging.debug('Got conflict data: %s', data)
             chunk_size = 1000
             for chunk in chunk_data(data, chunk_size):
                 producer.produce(
