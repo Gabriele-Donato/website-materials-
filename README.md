@@ -19,5 +19,5 @@ Note that 2) has been an interest of mine since I learned webscraping, so I plan
 # Checkpoints
 
 1) <del>Build a producer-consumer structure.</del>
-2) Save through pydoop (some problems with the installation here... I am a Linux Manjaro user)
+2) Save in Hadoop. 
 3) Integrate PySpark somehow.
