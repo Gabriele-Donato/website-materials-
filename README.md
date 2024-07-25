@@ -1,4 +1,4 @@
-**State of the art: 1) added a producer-consumer structure; 2)added temporary output as csv file (this may be easily changed to a Google Sheet, HDFS, JSON etc.. Proceeding!**
+**State of the art: 1) added a producer-consumer structure; 2)added temporary output as csv file (this may be easily changed to a Google Sheet, HDFS, JSON etc.. Proceeding, first checkpoint reached!**
 
 # What is cooking?
 
@@ -15,3 +15,9 @@ After the above general attempts I hope to achieve a generalisation of the basic
 3) A number of derived datasets to be analysed through different tools.
 
 Note that 2) has been an interest of mine since I learned webscraping, so I plan to define it in the most general way and make it a reusable component: finally I have the skills to conceptualise the problem!!
+
+# Checkpoints
+
+1) <del>Build a producer-consumer structure.</del>
+2) Save through pydoop (some problems with the installation here... I am a Linux Manjaro user)
+3) Integrate PySpark somehow.
