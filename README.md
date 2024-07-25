@@ -1,4 +1,4 @@
-**The project is being updated!**
+**State of the art: 1) added a producer-consumer structure; 2)added temporary output as csv file (this may be easily changed to a Google Sheet, HDFS, JSON etc...**
 
 # What is cooking?
 
