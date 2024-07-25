@@ -1,4 +1,4 @@
-**State of the art: 1) added a producer-consumer structure; 2)added temporary output as csv file (this may be easily changed to a Google Sheet, HDFS, JSON etc...**
+**State of the art: 1) added a producer-consumer structure; 2)added temporary output as csv file (this may be easily changed to a Google Sheet, HDFS, JSON etc.. Proceeding!**
 
 # What is cooking?
 
