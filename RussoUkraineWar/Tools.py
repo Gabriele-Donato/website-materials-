@@ -1,71 +1,60 @@
 import aiohttp
 import asyncio
+import hashlib
 from bs4 import BeautifulSoup
-import dateutil, datetime
-import json
-
+import dateutil.parser
 
 
 class ResourceExtractor:
-
     def __init__(self):
-        self.russo_ukranian_war_sources = [
+        self.sources = [
             'https://www.understandingwar.org/backgrounder/ukraine-conflict-updates',
             'https://www.understandingwar.org/backgrounder/ukraine-conflicts-updates-january-2-may-31-2024',
         ]
-        self.all_resources = {'ISW_Russia_Ukraine_War': self.russo_ukranian_war_sources}
-        self.output = {key: '' for key in self.all_resources}
+        self.previous_content = {url: '' for url in self.sources}
 
-    def url_assigner(self, url):
-        for key, value_list in self.all_resources.items():
-            if url in value_list:
-                return str(key)
-        return f'{url} : NOT IDENTIFIED'
+    def content_hash(self, content):
+        return hashlib.md5(content.encode('utf-8')).hexdigest()
 
-    async def text_extractor(self, session, url):
-        key = self.url_assigner(url)
-        async with session.get(url) as response:
-            await asyncio.sleep(2)
-            if response.status == 200:
-                self.output[key] += await response.text()
+    async def fetch_content(self, session, url):
+        try:
+            async with session.get(url) as response:
+                if response.status == 200:
+                    new_content = await response.text()
+                    old_content_hash = self.content_hash(self.previous_content[url])
+                    new_content_hash = self.content_hash(new_content)
 
-    async def run_text_extractor(self):
+                    if new_content_hash != old_content_hash:
+                        self.previous_content[url] = new_content
+                        return new_content
+        except aiohttp.ClientError as e:
+            print(f"Failed to fetch data from {url}: {e}")
+        return None
+
+    async def run_extractor(self):
         async with aiohttp.ClientSession() as session:
-            tasks = [self.text_extractor(session, resource_page) for resource_list in self.all_resources.values() for
-                     resource_page in resource_list]
-            await asyncio.gather(*tasks)
-            return self.output
+            tasks = [self.fetch_content(session, url) for url in self.sources]
+            results = await asyncio.gather(*tasks)
+            return {url: result for url, result in zip(self.sources, results) if result}
 
 
 class TextParser:
     def __init__(self, resource_dictionary):
         self.resource_dictionary = resource_dictionary
-        self.date_paragraph_map = {}
 
-    def page_dissecter(self):
-        soups = []
-        for html_text in self.resource_dictionary.values():
-            soup = BeautifulSoup(html_text, 'html.parser')
-            soups.append(soup)
-        return [[p_tag.text for p_tag in soup.find_all('p')]for soup in soups]
-
-    def is_date(self, text):
-        try:
-            possible_date = dateutil.parser.parse(text)
-            return True, possible_date
-        except:
-            return False, None
-
-    def shuffler(self):
-        resource_p_tags = self.page_dissecter()
-        current_date = None
-        for resource in resource_p_tags:
-            for paragraph in resource:
-                is_date, parsed_date = self.is_date(paragraph)
-                if is_date:
-                    current_date = str(parsed_date)
-                elif current_date:
-                    if current_date not in self.date_paragraph_map:
-                        self.date_paragraph_map[current_date] = ""
-                    self.date_paragraph_map[current_date] += paragraph
-        return self.date_paragraph_map
+    def parse_pages(self):
+        date_paragraph_map = {}
+        for url, html_text in self.resource_dictionary.items():
+            if html_text:
+                soup = BeautifulSoup(html_text, 'html.parser')
+                paragraphs = soup.find_all('p')
+                current_date = None
+                for p in paragraphs:
+                    text = p.get_text(strip=True)
+                    try:
+                        parsed_date = dateutil.parser.parse(text, fuzzy=False)
+                        current_date = parsed_date.strftime('%Y-%m-%d')
+                    except ValueError:
+                        if current_date:
+                            date_paragraph_map.setdefault(current_date, []).append(text)
+        return date_paragraph_map
